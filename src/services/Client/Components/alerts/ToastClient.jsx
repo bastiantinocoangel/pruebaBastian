@@ -4,21 +4,18 @@ import { Toast } from "react-bootstrap";
 export default function ToastClient(props) {
   const { show, message, onClose } = props;
 
-  console.log("ESTA ENTRANDO", show, message, onClose);
-
   return (
     <Toast
       onClose={onClose}
       show={show}
       delay={3000}
       autohide
-      style={{
-        position: "absolute",
-        top: 20,
-        right: 20,
-      }}
+      className="toast-container"
     >
-      <Toast.Body>{message}</Toast.Body>
+      <Toast.Header closeButton={false} className="toast-header">
+        <strong className="mr-auto">Notification</strong>
+      </Toast.Header>
+      <Toast.Body className="toast-body">{message}</Toast.Body>
     </Toast>
   );
 }
